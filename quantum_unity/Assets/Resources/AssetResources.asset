@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd8e95ae0daaec4496511105240e8a3, type: 3}
   m_Name: AssetResources
   m_EditorClassIdentifier: 
-  AddressablesGroup:
-    _resources: []
   AssetBundlesGroup:
     _resources: []
   ResourcesGroup:
@@ -43,13 +41,48 @@ MonoBehaviour:
         Id:
           Value: 5
       ResourcePath: DB/Configs/SimulationConfig
+    - Path: Resources/DB/Custom behaviour/Victory Area Collision Behaviour
+      AssetRef:
+        Id:
+          Value: 238435570915719405
+      ResourcePath: DB/Custom behaviour/Victory Area Collision Behaviour
+    - Path: Resources/DB/Fall Tile|EntityView
+      AssetRef:
+        Id:
+          Value: 478884187990716376
+      ResourcePath: DB/Fall Tile
+    - Path: Resources/DB/Fall Tile|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 557527792763781927
+      ResourcePath: DB/Fall Tile
     - Path: Resources/DB/Map1_mesh
       AssetRef:
         Id:
           Value: 713892900186712075
       ResourcePath: DB/Map1_mesh
+    - Path: Resources/DB/Player Entity|EntityView
+      AssetRef:
+        Id:
+          Value: 1637492844333723151
+      ResourcePath: DB/Player Entity
     - Path: Resources/DB/Map1
       AssetRef:
         Id:
           Value: 1710471675203725834
       ResourcePath: DB/Map1
+    - Path: Resources/DB/Custom behaviour/Death Area Collision Behaviour
+      AssetRef:
+        Id:
+          Value: 3847546676244408622
+      ResourcePath: DB/Custom behaviour/Death Area Collision Behaviour
+    - Path: Resources/DB/Player Entity|EntityPrototype
+      AssetRef:
+        Id:
+          Value: 4140600306693332259
+      ResourcePath: DB/Player Entity
+    - Path: Resources/DB/Configs/Spawn Data Asset
+      AssetRef:
+        Id:
+          Value: 4461534327803302053
+      ResourcePath: DB/Configs/Spawn Data Asset

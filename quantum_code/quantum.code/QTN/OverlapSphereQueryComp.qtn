@@ -1,0 +1,8 @@
+﻿component OverlapSphereQueryComp {
+	LayerMask Layer;					
+	Int32 QueryIndex;	
+	FPVector3 Position;
+    FPVector3 Offset;
+	FP SphereRadius;
+	Int32 Options;
+}

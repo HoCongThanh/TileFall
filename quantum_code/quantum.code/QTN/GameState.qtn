@@ -1,0 +1,10 @@
+﻿signal GameOver();
+signal InitGameData();
+synced event GameOver {}
+
+import enum GameState(byte);
+
+component GameStateComp
+{
+	GameState gameState;
+}

@@ -1,0 +1,25 @@
+﻿signal OnPlayerTouchTileFall(entity_ref tile);
+
+event OnTileFall
+{
+	entity_ref tile;
+}
+
+event OnCorrectTileFound
+{
+	entity_ref tile;
+}
+
+component TileFallComp
+{
+	Boolean IsFallable;
+}
+
+component TileFallAreaDataComp
+{
+	Boolean IsDone;
+	list<entity_ref> listTiles;
+	Int16 TilesRow;
+	Int16 TilesColumn;
+
+}

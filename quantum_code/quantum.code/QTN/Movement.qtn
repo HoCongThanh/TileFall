@@ -1,0 +1,34 @@
+﻿import enum MoveState(byte);
+import enum JumpState(byte);
+
+signal OnCharacterTouchGround(entity_ref characterEntity);
+signal LockCharacterMovement(entity_ref charaterEntity);
+
+component CharacterMovement
+{
+	// Config
+	player_ref Player;
+	FP Accelaration;
+	FP JumpImpulse;
+	FP Drag;
+	MoveState moveState;
+	JumpState jumpState;
+	FP DoubleJumpImpulse;
+	FP DoubleJumpPushForce;
+	FP NormalGravityScale;
+	FP MaxVelocityMagnitude;
+
+	// State
+	OverlapSphereQueryComp groundDetectorQueryComp;
+	entity_ref groundDetector;
+	FP currentVelocityMagnitude;
+	FPVector3 currentDirection;
+}
+
+
+
+input 
+{
+	button Jump;
+	Byte EncodedDirection;
+}

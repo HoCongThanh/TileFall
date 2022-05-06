@@ -1,0 +1,11 @@
+﻿signal OnPlayerRespawn(entity_ref playerEntity);
+
+component CheckPoint
+{
+	list<FPVector3> listRespawnPoint;
+}
+
+component RespawnComp
+{
+	entity_ref checkPoint;
+}

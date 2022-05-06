@@ -1,0 +1,7 @@
+﻿asset SpawnData;
+
+component SpawnArea
+{
+	list<FPVector3> spawnPositions;
+	asset_ref<SpawnData> spawnData;
+}

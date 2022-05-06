@@ -1,0 +1,17 @@
+﻿signal OnPlayerTouchVictoryGround(entity_ref playerEntity);
+signal OnPlayerWin(entity_ref playerEntity);
+
+synced event OnPlayerWin
+{
+	player_ref playerRef;
+}
+
+global 
+{
+	list<player_ref> refListWinPlayer;
+}
+
+component GameLogicComp
+{
+	UInt16 totalWinPlayerToGameOver;
+}

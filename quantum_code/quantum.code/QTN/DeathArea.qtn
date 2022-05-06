@@ -1,0 +1,8 @@
+﻿asset OnCollisionEnterBehaviour;
+
+component OnCollisionEnterComp
+{
+	asset_ref<OnCollisionEnterBehaviour> behaviour;
+}
+
+signal OnObjectEnterDeathArea(entity_ref objEntity);

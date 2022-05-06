@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
   <PropertyGroup>
@@ -58,20 +58,57 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandSetup.User.cs" />
+    <Compile Include="Common\QListExtension.cs" />
+    <Compile Include="Components\CheckPoint.cs" />
+    <Compile Include="Components\Collision Behaviour\DeathAreaCollisionBehaviour.cs" />
+    <Compile Include="Components\Collision Behaviour\VictoryAreaCollisionBehaviour.cs" />
+    <Compile Include="Components\GameLogic.cs" />
+    <Compile Include="Components\GameState.cs" />
+    <Compile Include="Components\Input.cs" />
+    <Compile Include="Components\CharacterMovement.cs" />
+    <Compile Include="Components\Collision Behaviour\OnCollisionEnterBehaviour.cs" />
+    <Compile Include="Components\PlayerComp.cs" />
+    <Compile Include="Components\RespawnComp.cs" />
+    <Compile Include="Components\SpawnArea.cs" />
+    <Compile Include="Components\SpawnData.cs" />
+    <Compile Include="Components\TileFallAreaDataComp.cs" />
+    <Compile Include="Components\TileFallComp.cs" />
     <Compile Include="Core\CodeGen.cs" />
     <Compile Include="CommandSetup.Legacy.cs" />
     <Compile Include="Core\Core.cs" />
     <Compile Include="Frame.User.cs" />
     <Compile Include="FrameContext.User.cs" />
+    <None Include="QTN\DeathArea.qtn" />
+    <None Include="QTN\GameLogic.qtn" />
+    <None Include="QTN\GameState.qtn" />
+    <None Include="QTN\ObjectType.qtn" />
+    <None Include="QTN\OverlapSphereQueryComp.qtn" />
     <Compile Include="RuntimeConfig.User.cs" />
     <Compile Include="RuntimePlayer.User.cs" />
     <Compile Include="SimulationConfig.User.cs" />
     <Compile Include="SystemSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\CheckPointSystem.cs" />
+    <Compile Include="System\CollisionDetectSystem.cs" />
+    <Compile Include="System\GameLogicSystem.cs" />
+    <Compile Include="System\GameStateSystem.cs" />
+    <Compile Include="System\OverlapSphereQuerySystem.cs" />
+    <Compile Include="System\PlayerDeathControlSystem.cs" />
+    <Compile Include="System\RespawnSystem.cs" />
+    <Compile Include="System\TileFallSystem.cs" />
+    <Compile Include="System\MovementSystem.cs" />
+    <None Include="QTN\Player.qtn" />
+    <None Include="QTN\Respawn.qtn" />
+    <None Include="QTN\SpawnArea.qtn" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="db.json" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="QTN\TileFall.qtn" />
+    <None Include="QTN\Movement.qtn" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent Condition="'$(OS)' == 'Windows_NT'">"$(ProjectDir)..\..\tools\codegen_unity\quantum.codegen.unity.host.exe" "$(TargetDir)\quantum.code.dll" "$(ProjectDir)..\..\quantum_unity\Assets"</PostBuildEvent>

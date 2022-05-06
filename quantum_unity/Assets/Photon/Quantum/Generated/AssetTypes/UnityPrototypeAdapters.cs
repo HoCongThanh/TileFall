@@ -6,6 +6,75 @@
 using System;
 namespace Quantum.Prototypes.Unity {
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.CharacterMovement))]
+  public class CharacterMovement_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.CharacterMovement_Prototype> {
+    public Quantum.PlayerRef Player;
+    public Photon.Deterministic.FP Accelaration;
+    public Photon.Deterministic.FP JumpImpulse;
+    public Photon.Deterministic.FP Drag;
+    public Quantum.MoveState moveState;
+    public Quantum.JumpState jumpState;
+    public Photon.Deterministic.FP DoubleJumpImpulse;
+    public Photon.Deterministic.FP DoubleJumpPushForce;
+    public Photon.Deterministic.FP NormalGravityScale;
+    public Photon.Deterministic.FP MaxVelocityMagnitude;
+    public Quantum.Prototypes.OverlapSphereQueryComp_Prototype groundDetectorQueryComp;
+    [Quantum.LocalReference]
+    public global::EntityPrototype groundDetector;
+    public Photon.Deterministic.FP currentVelocityMagnitude;
+    public Photon.Deterministic.FPVector3 currentDirection;
+
+    public sealed override Quantum.Prototypes.CharacterMovement_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.CharacterMovement_Prototype();
+      result.Player = this.Player;
+      result.Accelaration = this.Accelaration;
+      result.JumpImpulse = this.JumpImpulse;
+      result.Drag = this.Drag;
+      result.moveState = this.moveState;
+      result.jumpState = this.jumpState;
+      result.DoubleJumpImpulse = this.DoubleJumpImpulse;
+      result.DoubleJumpPushForce = this.DoubleJumpPushForce;
+      result.NormalGravityScale = this.NormalGravityScale;
+      result.MaxVelocityMagnitude = this.MaxVelocityMagnitude;
+      result.groundDetectorQueryComp = this.groundDetectorQueryComp;
+      converter.Convert(this.groundDetector, out result.groundDetector);
+      result.currentVelocityMagnitude = this.currentVelocityMagnitude;
+      result.currentDirection = this.currentDirection;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.RespawnComp))]
+  public class RespawnComp_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.RespawnComp_Prototype> {
+    [Quantum.LocalReference]
+    public global::EntityPrototype checkPoint;
+
+    public sealed override Quantum.Prototypes.RespawnComp_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.RespawnComp_Prototype();
+      converter.Convert(this.checkPoint, out result.checkPoint);
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.TileFallAreaDataComp))]
+  public class TileFallAreaDataComp_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.TileFallAreaDataComp_Prototype> {
+    public Quantum.QBoolean IsDone;
+    [Quantum.Inspector.DynamicCollectionAttribute()]
+    [Quantum.LocalReference]
+    public global::EntityPrototype[] listTiles = System.Array.Empty<global::EntityPrototype>();
+    public System.Int16 TilesRow;
+    public System.Int16 TilesColumn;
+
+    public sealed override Quantum.Prototypes.TileFallAreaDataComp_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.TileFallAreaDataComp_Prototype();
+      result.IsDone = this.IsDone;
+      result.listTiles = System.Array.ConvertAll(this.listTiles, x => { converter.Convert(x, out Quantum.MapEntityId tmp); return tmp; });
+      result.TilesRow = this.TilesRow;
+      result.TilesColumn = this.TilesColumn;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.PhysicsJoints3D))]
   public class PhysicsJoints3D_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.PhysicsJoints3D_Prototype> {
     [Quantum.Inspector.DynamicCollectionAttribute()]
